@@ -1,6 +1,14 @@
 <script>
-	let name = 'Judith';
+	let firstName = 'Judith';
+	let lastName = 'Karuku';
 	let shoecolour = 'black';
+	
+	$: fullName = `${firstName} ${lastName}`;
+	$: {
+		console.log(shoecolour);
+		console.log(fullName);
+	}
+
 
 	const handleCLick = () => {
 		shoecolour = 'red';
@@ -11,10 +19,11 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {shoecolour}">{shoecolour} shoe</p>
-	<button on:click={handleCLick}> update shoe clour</button>
+	<p>{fullName} - {shoecolour} shoe</p>
+	<!-- <button on:click={handleCLick}> update shoe clour</button> -->
 	<!-- <input type="text" on:input={handleInput} value={shoecolour}> -->
+	 <input type="text" bind:value={firstName}>
+	 <input type="text" bind:value={lastName}>
 	 <input type="text" bind:value={shoecolour}>
 </main>
 
