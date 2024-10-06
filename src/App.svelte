@@ -5,12 +5,17 @@
 	const handleCLick = () => {
 		shoecolour = 'red';
 	};
+	const handleInput = (e) => {
+		shoecolour = e.target.value 
+	};
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>{shoecolour} shoe</p>
+	<p style="color: {shoecolour}">{shoecolour} shoe</p>
 	<button on:click={handleCLick}> update shoe clour</button>
+	<!-- <input type="text" on:input={handleInput} value={shoecolour}> -->
+	 <input type="text" bind:value={shoecolour}>
 </main>
 
 <style>
