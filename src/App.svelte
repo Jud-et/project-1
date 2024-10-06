@@ -1,30 +1,22 @@
 <script>
-	let firstName = 'Judith';
-	let lastName = 'Karuku';
-	let shoecolour = 'black';
-	
-	$: fullName = `${firstName} ${lastName}`;
-	$: {
-		console.log(shoecolour);
-		console.log(fullName);
-	}
+	let people = [
+		{name: 'judith', shoecolour: 'red', age: 20, id: 1},
+		{name: 'Doreen', shoecolour: 'blue', age: 18, id: 2},
+		{name: 'Felix', shoecolour: 'black', age: 22, id: 3}
+	];
 
-
-	const handleCLick = () => {
-		shoecolour = 'red';
-	};
-	const handleInput = (e) => {
-		shoecolour = e.target.value 
-	};
 </script>
 
 <main>
-	<p>{fullName} - {shoecolour} shoe</p>
-	<!-- <button on:click={handleCLick}> update shoe clour</button> -->
-	<!-- <input type="text" on:input={handleInput} value={shoecolour}> -->
-	 <input type="text" bind:value={firstName}>
-	 <input type="text" bind:value={lastName}>
-	 <input type="text" bind:value={shoecolour}>
+	{#each people as person (person.id)}
+	<div>
+		<h4>{person.name} </h4>
+		<p>{person.age} years old, {person.shoecolour} shoe </p>
+	</div>
+	{:else}
+	<p>There are no people to show...</p>
+
+	{/each}
 </main>
 
 <style>
